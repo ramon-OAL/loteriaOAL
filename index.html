@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comprobador de Lotería</title>
+  <style type="text/css">
+      
+      *{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+background-image:url("fondo8.png");
+text-align:center justify;
+background-repeat: no repeat;
+background-size: cover;
+font-family: Arial, sans-serif;
+background-attachment: fixed;
+
+}       
+
+
+.titulo{
+    background:#d98682 ;
+    font-family:segoe;
+}
+#container{
+background-color:#e3e2a6;
+    padding:50px;
+    border-radius:3px;
+    box-shadow: 0 0 10px;
+width: 60%;
+margin: 0 auto;
+}
+input{
+    padding:10px;
+    margin:5px;
+    border-bottom-color: #bf3750;
+}
+button{
+    background-color:#bf3750 ;
+    padding:10px;
+    color:#b0d8d9;
+}
+
+button:hover{
+    background-color:#9ef7a1;
+    padding:10px;
+    color:white;
+}
+
+footer{
+background-color:#8b90d9;
+color: black;
+border: 4px solid grey;
+position: absolute;
+bottom: 0;
+}
+
+
+
+  </style>
+</head>
+<body>
+  <div class="fondo" id="container">
+    <br>
+    <h2 class="titulo">COMPROBADOR DE LOTERÍA</h2>
+    <br>
+    
+
+    <!-- Campos de entrada para los cinco números de premio -->
+    <label for="premio1">Primer premio:</label>
+    <input type="text" id="premio1" placeholder="Ejemplo: 12345">
+<br>
+    <label for="premio2">Segundo premio:</label>
+    <input type="text" id="premio2" placeholder="Ejemplo: 23451">
+<br>
+    <label for="premio3">Tercer premio:</label>
+    <input type="text" id="premio3" placeholder="Ejemplo: 34512">
+<br>
+    <label for="premio4">Cuarto premio:</label>
+    <input type="text" id="premio4" placeholder="Ejemplo: 45123">
+<br>
+    <label for="premio5">Quinto premio:</label>
+    <input type="text" id="premio5" placeholder="Ejemplo: 51234">
+<br>
+    <button onclick="comprobarNumero()">COMPROBAR</button>
+ <br>
+
+    <div id="result"></div>
+  </div>
+<br>
+ <br>
+
+<img src="oal.png" width="150px"> 
+<img src="logo1.png" width="150px">
+<img src="1.gif" width="150px">
+
+  <footer>
+      Diseñado por las alumnas y alumnos del Programa de Empleo y Formación Huétor Tájar 5.0
+  </footer>
+<br>
+<script>
+    // Lista de números premiados
+    var numerosPremiados = ["09086", "22616", "78547", "25995", "48287", "05655", "16601", "96418", "37974", "30799", "12244", "49219", "09841", "01041", "30799", "95648", "76649", "88999", "21420", "72261", "82098", "37152", "31127", "04553", "16814", "26925"];
+
+    function comprobarNumero() {
+      // Obtener los números ingresados por el usuario
+      var premio1 = document.getElementById("premio1").value;
+      var premio2 = document.getElementById("premio2").value;
+      var premio3 = document.getElementById("premio3").value;
+      var premio4 = document.getElementById("premio4").value;
+      var premio5 = document.getElementById("premio5").value;
+
+      // Limpiar resultados anteriores
+      document.getElementById("result").innerText = "";
+
+      // Comprobar si algún número es premiado
+      if (numerosPremiados.includes(premio1)) {
+        document.getElementById("result").innerText += "¡Felicidades! Tu número del primer premio ha sido premiado.\n";
+      }
+
+      if (numerosPremiados.includes(premio2)) {
+        document.getElementById("result").innerText += "¡Felicidades! Tu número del segundo premio ha sido premiado.\n";
+      }
+
+      if (numerosPremiados.includes(premio3)) {
+        document.getElementById("result").innerText += "¡Felicidades! Tu número del tercer premio ha sido premiado.\n";
+      }
+
+      if (numerosPremiados.includes(premio4)) {
+        document.getElementById("result").innerText += "¡Felicidades! Tu número del cuarto premio ha sido premiado.\n";
+      }
+
+      if (numerosPremiados.includes(premio5)) {
+        document.getElementById("result").innerText += "¡Felicidades! Tu número del quinto premio ha sido premiado.\n";
+      }
+
+      // Mostrar mensaje si ningún número es premiado
+      if (document.getElementById("result").innerText === "") {
+        document.getElementById("result").innerText = "Lo siento, ninguno de tus números no ha sido premiado. Sigue intentándolo.";
+      }
+    }
+  </script>
+
+</body>
+</html>
